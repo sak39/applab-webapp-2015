@@ -10,25 +10,46 @@
         
         .contain {
             text-align:center;
-            margin:10%;
+            margin:5%;
         }
         
         .search #search{
-            margin:20px 0;
+            margin:10px 0 0 0;
         }
         
-        .search input{
-            width:500px;
-            height:30px;
+        .search #button_google{
+            margin:10px 0;
+        }
+        
+        .search #button_lucky{
+            margin:10px 0;
+        }
+        
+        .search .input input{
+            width:570px;
+            height:35px;
             font-size:20px;
-
+        }
+        
+        .search .input img{
+            text-align:right;
+            position: relative;
+            left:265px;
+            top:-35px;
         }
         
         .search button{
-            width:200px;
-            height:30px;
+/*            width:200px;*/
+            height:40px;
             border:none;
-            background-color:#D8D8D8;
+            background-color:#efebeb;
+            font-size:14px;
+            color:#696969;
+            padding:0 15px;
+        }
+        
+        .contain p{
+            font-size:14px;
         }
         
         .contain a{
@@ -47,9 +68,12 @@
         <img src="pic/logo.jpg" alt="googlelogo" />
         </div>
         <div class="search">
-            <input type="text" name="" id="search"><br>
-            <button type="submit" name"search" id="search">Google 検索</button>
-            <button type="button" name"I'm feeling lucky" id="search">I'm Feeling Lucky</button>
+             <div class="input">
+                <input type="text" name="" id="search"><br>
+                <img src="pic/icon.png" alt="icon">
+            </div>
+            <button type="submit" name"search" id="button_google">Google 検索</button>
+            <button type="button" name"I'm feeling lucky" id="button_lucky">I'm Feeling Lucky</button>
         </div>
         <p>Google の新しいスマートフォン <a href="Nexus">Nexus</a> 登場。</p>
         
