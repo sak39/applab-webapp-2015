@@ -1,83 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
-    <title>Google</title>
-    <style>
-        .header{
-            text-align: right;
-        }
-        
-        .contain {
-            text-align:center;
-            margin:5%;
-        }
-        
-        .search #search{
-            margin:10px 0 0 0;
-        }
-        
-        .search #button_google{
-            margin:10px 0;
-        }
-        
-        .search #button_lucky{
-            margin:10px 0;
-        }
-        
-        .search .input input{
-            width:570px;
-            height:35px;
-            font-size:20px;
-        }
-        
-        .search .input img{
-            text-align:right;
-            position: relative;
-            left:265px;
-            top:-35px;
-        }
-        
-        .search button{
-/*            width:200px;*/
-            height:40px;
-            border:none;
-            background-color:#efebeb;
-            font-size:14px;
-            color:#696969;
-            padding:0 15px;
-        }
-        
-        .contain p{
-            font-size:14px;
-        }
-        
-        .contain a{
-            text-decoration: none;
-        }
-        
-        
-    </style>
+    <title>TEST ROOM</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="snap.css">
+    
 </head>
 <body>
-    <div class="header">
-        <img src="pic/header.png" alt="header">
-    </div>
-    <div class="contain">
-        <div class="logo">
-        <img src="pic/logo.jpg" alt="googlelogo" />
-        </div>
-        <div class="search">
-             <div class="input">
-                <input type="text" name="" id="search"><br>
-                <img src="pic/icon.png" alt="icon">
-            </div>
-            <button type="submit" name"search" id="button_google">Google 検索</button>
-            <button type="button" name"I'm feeling lucky" id="button_lucky">I'm Feeling Lucky</button>
-        </div>
-        <p>Google の新しいスマートフォン <a href="Nexus">Nexus</a> 登場。</p>
+    <div class="wrap">
+
         
-    </div>
-    
+       <!-- side -->
+       <div class="snap-drawers">
+            <div class="snap-drawer snap-drawer-right">
+                <!-- メニューの部分 -->
+                <ul>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                    <li>テスト</li>
+                </ul>
+            </div>
+        </div>
+
+
+    <!-- main -->
+    <div id="content" class="snap-content">
+            <!-- ドロワーメニューを開くボタン -->
+            <img src="pic/btn-hamburger.png" class="hamburger" id="open-right">
+            <!-- コンテンツ部分 -->
+            <div class="top-image">
+                <img src="http://placehold.jp/400x250.png">
+                <div class="mojinose">
+                    お気に入り選手を見つけて<br>
+                    投資しよう!
+                </div>
+            </div>
+
+            <div class="header">
+            <h1>カブドラ</h1>
+            </div>
+
+             <!-- button エリア-->
+            <div class="twitter">
+                <p>Twitterでログイン</p>
+            </div>
+
+            <div class="facebook">
+                <p>facebookでログイン</p>
+            </div>
+
+        <div class="text">
+            <h2>人気急上昇！パリーグ推しメン！</h2>
+        </div>
+
+        <div class="oshimen">
+            <div class="white-box">
+              <div class="man-image">
+                <img src="http://placehold.jp/100x100.png">
+              </div>
+              <p>藤井靖史選手</p>
+              <p>4537 point UP!</p>
+              <a href="">
+                <div class="toshi">
+                  投資する
+                </div>
+              </a>
+            </div>
+
+            <div class="white-box">
+                  <div class="man-image">
+                    <img src="http://placehold.jp/100x100.png">
+                  </div>
+                  <p>藤井靖史選手</p>
+                  <p>4537 point UP!</p>
+                  <a href="">
+                    <div class="toshi">
+                      投資する
+                    </div>
+                  </a>
+            </div>
+        </div><!--oshimen-->
+    </div><!-- main-->
+
+    </div><!-- wrap -->
+
+    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.js"></script><!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.js/1.9.3/snap.js"></script><!--snap-->
+    <script src="main.js"></script>
 </body>
 </html>
