@@ -1,97 +1,146 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
     <meta charset="UTF-8">
-    <title>TEST ROOM</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="snap.css">
-    
-</head>
-<body>
-    <div class="wrap">
-
-        
-       <!-- side -->
-       <div class="snap-drawers">
-            <div class="snap-drawer snap-drawer-right">
-                <!-- メニューの部分 -->
-                <ul>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                    <li>テスト</li>
-                </ul>
-            </div>
-        </div>
-
-
+    <title>カブドラ プロトタイプ</title>
     <!-- main -->
-    <div id="content" class="snap-content">
-            <!-- ドロワーメニューを開くボタン -->
-            <img src="pic/btn-hamburger.png" class="hamburger" id="open-right">
-            <!-- コンテンツ部分 -->
-            <div class="top-image">
-                <img src="http://placehold.jp/400x250.png">
-                <div class="mojinose">
-                    お気に入り選手を見つけて<br>
-                    投資しよう!
+    <link rel="stylesheet" href="main.css" />
+    <!-- snap.jsのためのcss-->
+    <link rel="stylesheet" href="snap.css" />
+    <!-- headroom.jsのためのcss-->
+    <link rel="stylesheet" href="headroom.css" />
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- side -->
+        <div id="side">
+            <div class="snap-drawers">
+                <div class="snap-drawer snap-drawer-right">
+                    <!-- メニューの部分 -->
+                    <ul>
+                       <li>テスト<span class="chevron"></span></li>
+                       <li>テスト<span class="chevron"></span></li>
+                       <li>テスト<span class="chevron"></span></li>
+                       <li>テスト<span class="chevron"></span></li>
+                       <li>テスト<span class="chevron"></span></li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="header">
-            <h1>カブドラ</h1>
-            </div>
-
-             <!-- button エリア-->
-            <div class="twitter">
-                <p>Twitterでログイン</p>
-            </div>
-
-            <div class="facebook">
-                <p>facebookでログイン</p>
-            </div>
-
-        <div class="text">
-            <h2>人気急上昇！パリーグ推しメン！</h2>
         </div>
 
-        <div class="oshimen">
-            <div class="white-box">
-              <div class="man-image">
-                <img src="http://placehold.jp/100x100.png">
-              </div>
-              <p>藤井靖史選手</p>
-              <p>4537 point UP!</p>
-              <a href="">
-                <div class="toshi">
-                  投資する
-                </div>
-              </a>
-            </div>
+        <!-- main -->
+        <div id="main">
+            <!-- この部分が動きます -->
+            <div id="slide" class="snap-content">
 
-            <div class="white-box">
-                  <div class="man-image">
-                    <img src="http://placehold.jp/100x100.png">
-                  </div>
-                  <p>藤井靖史選手</p>
-                  <p>4537 point UP!</p>
-                  <a href="">
-                    <div class="toshi">
-                      投資する
+                <!-- Header(動かすためにやむなくこの位置に) -->
+                <div id="header" class="headroom">
+                    <h1>カブドラ</h1>
+                    <!-- ドロワーメニューを開くボタン -->
+                    <div id="open-right">
+                        <img class="hamburger" src="pic/btn-hamburger.png">
                     </div>
-                  </a>
+                </div>
+
+                <!-- コンテンツ部分 -->
+                <div class="content">
+                    <div class="top-image">
+                        <!-- 400 x 250 -->
+                        <img src="http://placehold.jp/400x250.png">
+                        <!-- ここはレスポンシブにしたいなー -->
+                        <div class="mojinose">
+                            お気に入り選手を見つけて
+                            <br> 投資しよう!
+                        </div>
+                    </div>
+
+                    <!-- login エリア-->
+                    <div class="login">
+                        <div class="twitter">
+                            <p>Twitterでログイン</p>
+                        </div>
+
+                        <div class="facebook">
+                            <p>facebookでログイン</p>
+                        </div>
+                    </div>
+
+                    <!-- 運営からのコメント -->
+                    <div class="comment">
+                        <h2>人気急上昇！パリーグ推しメン！</h2>
+                    </div>
+
+                    <!-- 押しメン -->
+                    <div class="oshimen">
+                        <div class="white-box">
+                            <div class="player-img">
+                                <img src="http://placehold.jp/100x100.png">
+                            </div>
+                            <p>藤井靖史選手</p>
+                            <p>4537 point UP!</p>
+                            <div class="vote">
+                                <a href="">投資する</a>
+                            </div>
+                        </div>
+
+                        <div class="white-box">
+                            <div class="player-img">
+                                <img src="http://placehold.jp/100x100.png">
+                            </div>
+                            <p>藤井靖史選手</p>
+                            <p>4537 point UP!</p>
+                            <div class="vote">
+                                <a href="">投資する</a>
+                            </div>
+                        </div>
+
+                        <div class="white-box">
+                            <div class="player-img">
+                                <img src="http://placehold.jp/100x100.png">
+                            </div>
+                            <p>藤井靖史選手</p>
+                            <p>4537 point UP!</p>
+                            <div class="vote">
+                                <a href="">投資する</a>
+                            </div>
+                        </div>
+
+                        <div class="white-box">
+                            <div class="player-img">
+                                <img src="http://placehold.jp/100x100.png">
+                            </div>
+                            <p>藤井靖史選手</p>
+                            <p>4537 point UP!</p>
+                            <div class="vote">
+                                <a href="">投資する</a>
+                            </div>
+                        </div>
+
+                        <!-- oshimen-footer -->
+                        <div class="oshimen-footer">
+                        </div>
+                    </div>
+                    <!--oshimen-->
+                </div>
+                <!-- content -->
             </div>
-        </div><!--oshimen-->
-    </div><!-- main-->
+            <!-- slide -->
+        </div>
+        <!-- main-->
+    </div>
+    <!-- wrapper -->
 
-    </div><!-- wrap -->
-
-    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.js"></script><!--jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.js/1.9.3/snap.js"></script><!--snap-->
+    <!--jquery-->
+    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <!--snap.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.js/1.9.3/snap.js"></script>
+    <!--headroom.js-->
+    <script src="http://cdn.jsdelivr.net/headroomjs/0.7.0/headroom.min.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

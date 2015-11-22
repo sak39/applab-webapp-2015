@@ -1,6 +1,7 @@
+//==== snap.js ======
 // 基本的な記述です。コンテンツ部分のID名を書いておきましょう。
 var snapper = new Snap({
-    element: document.getElementById('content'),
+    element: document.getElementById('slide'), //この部分が動きます
     disable: 'left',
     minPosition: -200,
     transitionSpeed: 0.4
@@ -15,8 +16,13 @@ var addEvent = function addEvent(element, eventName, func) {
     }
 };
  
-// ボタンのID名と揃えておきましょう。
+//==呼びたすボタン== ボタンのID名と揃えておきましょう。 
 addEvent(document.getElementById('open-right'), 'click', function(){
-    snapper.open('right');
+    snapper.open('right')
 });
 
+
+//===== headroom.jp =====
+var target = document.getElementById("base");
+var headroom  = new Headroom(target);
+headroom.init();
