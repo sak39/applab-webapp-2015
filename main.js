@@ -5,7 +5,17 @@ $(document).ready(function () {
 
 
 //===== headroom.jp =====
-var target = document.querySelector("header");
-var headroom  = new Headroom(target);
+var target = document.getElementById("target");
+var headroom  = new Headroom(target, {
+    offset: 10,
+    tolerance: 10,
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    },
+    onPin: function() {console.log("onPin")},
+    onUnpin: function() {console.log("onUnpin")},
+});
 headroom.init();
 

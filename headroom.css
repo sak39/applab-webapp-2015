@@ -1,27 +1,10 @@
-/*
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-*/
-
-/*
-#foo {
-    width: 1024px;
-    height: 1056px;
-    background-image: url("http://jsrun.it/assets/8/5/K/8/85K8v.jpg");
-    background-repeat: no-repeat;
-    background-position: 0px 100px;  
-}
-*/
-
 .initial {
     background-color: green;
     opacity: 0.5;
 }
 
 .pinned {
+
     background-color: blue !important;
     opacity: 0.5;
 }
