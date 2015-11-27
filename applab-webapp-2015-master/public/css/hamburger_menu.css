@@ -1,0 +1,204 @@
+#header-menu{
+    width: 60px;
+    float: right;
+    margin: 20px 30px 0 0;
+    right: 10px;
+}
+
+/*以下サイト引用*/
+/* =============================
+hamburger アイコン含め動作
+============================= */
+#hamburger {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    width: 55px;
+    height: 60px;
+    float: right;
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 17px 7px 17px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.icn{
+    margin: 0;
+}
+#hamburger .icn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#hamburger .icn span {
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    width: 25px;
+    height: 4px;
+    background-color: #b5b5b5;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+#hamburger .icn span:nth-of-type(1) {
+    top: 0;
+}
+#hamburger .icn span:nth-of-type(2) {
+    top: 10px;
+}
+#hamburger .icn span:nth-of-type(3) {
+    top: 20px;
+}
+#hamburger.on {
+    position: relative;
+    z-index: 5000;
+    background-color: #f2f2f2;
+}
+#hamburger.on .icn span:nth-of-type(1) {
+    -webkit-transform: translateY(10px) rotate(-45deg);
+    transform: translateY(10px) rotate(-45deg);
+}
+#hamburger.on .icn span:nth-of-type(2) {
+    opacity: 0;
+}
+#hamburger.on .icn span:nth-of-type(3) {
+    -webkit-transform: translateY(-10px) rotate(45deg);
+    transform: translateY(-10px) rotate(45deg);
+}
+
+/* =============================
+spNav メニューの中身
+============================= */
+#spNav {
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    background-color: #f2f2f2;
+    padding: 0;
+    position: fixed;
+    z-index: 5000;
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid #ccc;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    transform: translateX(100%);
+    }
+#spNav.on {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+}
+#spNav li {
+    font-size: 13px;
+}
+#spNav li > span {
+    margin: 50px auto;
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+#spNav li img,
+#spNav li .navTxt {
+    font-size: 30px;
+    vertical-align: middle;
+}
+#spNav li.off {
+    opacity:0.2;
+    filter: alpha(opacity=20);
+    -ms-filter: "alpha(opacity=20)";
+    -moz-opacity:0.2;
+    -khtml-opacity: 0.2;
+    zoom:1;
+}
+.NavListTxt {
+    margin: 0 auto;
+    padding: 0;
+    background-color: rgba(250,150,40,0.8);
+    text-align: center;
+    list-style: none;
+}
+#spNavSdw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4999;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+#spNavSdw.show {
+    animation-name: spNavSdwAnime;
+    -webkit-animation-name: spNavSdwAnime;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    display: block;
+}
+@keyframes spNavSdwAnime {
+    0% {
+        opacity: 0;
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+}
+@-moz-keyframes spNavSdwAnime {
+    0% {
+        opacity: 0;
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+}
+@-webkit-keyframes spNavSdwAnime {
+    0% {
+        opacity: 0;
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+}
+@-o-keyframes spNavSdwAnime {
+    0% {
+        opacity: 0;
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+    }
+}

@@ -3,19 +3,20 @@ $(document).ready(function () {
     $('.drawer').drawer();
 });
 
-
 //===== headroom.jp =====
-var target = document.getElementById("target");
-var headroom  = new Headroom(target, {
-    offset: 10,
-    tolerance: 10,
-    classes: {
-        initial: "initial",
-        pinned: "pinned",
-        unpinned: "unpinned"
-    },
-    onPin: function() {console.log("onPin")},
-    onUnpin: function() {console.log("onUnpin")},
+$(function($){
+    // ===============================
+    // Headroom動作関係
+    // ===============================
+    $("header").headroom({
+    "tolerance": 7,
+    "offset": 205,
+    "classes": {
+    "initial": "animated",
+    "pinned": "slideDown",
+    "unpinned": "slideUp",
+    "top": "headroom--top",
+    "notTop": "headroom--not-top"
+    }
+    });
 });
-headroom.init();
-

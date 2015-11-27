@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: scroll;
-    height: 100%;
+    height: 1000px;
     width: 100%;
 }
 
@@ -35,15 +35,60 @@ a{
 }
 
 /* header */
-header{
+#header{
     position: fixed;
     top: 0px;
     left: 0px;
     width:100%;
     height:70px; /* 固定 */
     background-color: rgba(255, 165, 0,0.6);
-    z-index: 1;
+    z-index: 10;
 }
+
+
+/*headroom*/
+.header-animated {
+	-webkit-animation-duration: .5s;
+	-moz-animation-duration: .5s;
+	-o-animation-duration: .5s;
+	animation-duration: .5s;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+.header-animated.slideUp {
+	-webkit-animation-name: slideUp;
+	-moz-animation-name: slideUp;
+	-o-animation-name: slideUp;
+	animation-name: slideUp
+}
+@-webkit-keyframes slideUp {
+	0% {
+	-webkit-transform: translateY(0)
+	}
+	/*スライドアップで隠す領域*/
+	100% {
+	-webkit-transform: translateY(-100%)
+	}
+}
+.animated.slideDown {
+	-webkit-animation-name: slideDown;
+	-moz-animation-name: slideDown;
+	-o-animation-name: slideDown;
+	animation-name: slideDown
+}
+@-webkit-keyframes slideDown {
+	/*スライドダウンで隠す領域*/
+	0% {
+	-webkit-transform: translateY(-100%)
+	}
+
+	100% {
+	-webkit-transform: translateY(0)
+	}
+}
+
 
 .hamburger {
     display: block; 
@@ -109,12 +154,27 @@ header{
     position: relative;
     width:450px;
     height:250px;
+    margin:0 auto;
 }
 
-.mojinose{
-    position:absolute;
+#top-table .top-background{
+	position: relative;
+	width: 400px;
+	height: 250px;
+	margin: 0 auto;
+}
+.top-background .top-image .top-text{
+	position: absolute;
+	display:block;
+}
+.top-image{
+	margin: 0;
+}
+
+.top-text{
+    position: relative;
     top:50%;
-    left:100px;
+    left:90px;
     text-align: center;
     color: white;
     font-size:20px;
@@ -124,6 +184,7 @@ header{
 .login{ /* login 内で共通 */
     font-family: 'Microsoft Sans Serif';
     text-align: center;
+    position: relative;
     margin: 0 auto;
     color: white;
 }
@@ -156,7 +217,9 @@ header{
     position: relative;
     width:100%;
     height:100%;
-    padding:0 5%;/* いい感じにセンター寄せできないかなー */
+    margin:0 auto;
+    /* レスポンシブに */
+    left:5%;
     text-align:center;
 }
 
