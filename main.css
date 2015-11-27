@@ -20,9 +20,10 @@ h2{
 }
 
 button{
-    margin: 10px;
-    height: 40px;
-    width: 300px;
+    display: block;
+    font-family: sans-serif;
+    font-size: 15px;
+    color:white;
 }
 
 a{
@@ -185,12 +186,12 @@ a{
     font-family: 'Microsoft Sans Serif';
     text-align: center;
     position: relative;
-    margin: 0 auto;
+    margin: 10px auto;
     color: white;
 }
 
-.login > .twitter{
-    margin: 0 auto;
+.login .twitter{
+    margin: 10px  auto;
     background: skyblue;
     width: 250px;
     height: 40px;
@@ -198,8 +199,8 @@ a{
     border-radius: 15px;
 }
 
-.login > .facebook{
-    margin: 0 auto;
+.login .facebook{
+    margin: 10px auto;
     background: navy;
     width: 250px;
     height: 40px;
