@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>PitchSerch API Sample</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script>
+        var app = {};
+        function login(options) {
+            // 認証情報
+            var loginId = 'u-aizu';
+            var password = 'vt4p2bf4'
+
+            // 認証API呼び出しに必要なリクエストヘッダ設定
+            options.headers = {};
+            options.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            options.authRequest = true;
+            options.body = "grant_type=password&username=" + loginId + "&password=" + password;
+            options.method = 'POST';
+            options.url = 'https://pk-api.pitchbase.jp/apiv0/pitchbase/auth'
+            callApi(options);
+        }
+        function callApi(options) {
+            if (!options.method) {
+                options.method = 'GET';
+            }
+            if (!options.contentType) {
+                options.contentType = 'application/json';
+            }
+            if (!options.headers) {
+                options.headers = {};
+            }
+            options.headers['X-PitchBase-API-Token'] = app.access_token;
+
+            var xhr = $.ajax({
+                type: options.method,
+                dataType: "json",
+                contentType: options.contentType,
+                processData: false,
+                url: options.url,
+                data: options.body,
+                headers: options.headers,
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (response) {
+                    console.log("Success ajax. ");
+                    options.success(response);
+                },
+                error: function (jqxhr, textStatus, error) {
+                    console.log("Failed ajax error. textStatus: " + textStatus);
+                    options.error(jqxhr, textStatus, error);
+                }
+            });
+        }
+        function callPitchSearch() {
+            // 検索条件
+            var primaryPlayer = app.player_code;
+            if (!primaryPlayer) {
+                primaryPlayer = "2002059";
+            }
+            var primaryTeam = app.team_code;
+            if (!primaryTeam) {
+                primaryTeam = "2008001";
+            }
+            var condition = {
+                "primary": {
+                    "kind": "batter",
+                    "team_code": "2008001",
+                    "player_code": "2002059"
+                },
+                "target": {
+                    "team_code": "2005003",
+                    "player_code": "2011073",
+                    "lr": "R"
+                },
+                "filter": {
+                    "pitching_result_detail": "STRIKE",
+                    "pitching_result_category": "1",
+                    "batting_result_detail": "SO",
+
+                    "batting_result_category": "3",
+                    "batting_result_subcategory": "1",
+                    "pitch_type": "slider",
+
+                    "course": 9,
+                    "count": {
+                        "balls": 0,
+                        "strikes": 2,
+                        "outs": 2
+                    },
+                    "runner": {
+                        "first_runner": true,
+                        "third_runner": true
+                    }
+                }
+            };
+            callApi({
+                method: 'POST',
+                url: 'https://pk-api.pitchbase.jp/apiv0/pitchbase/data/pitchsearch',
+                body: JSON.stringify(condition),
+                success: function(response) {
+                    if (response.results.length > 0) {
+                        var playMovie = response.results[0];
+                        var v = document.getElementById("pitchVideo");
+                        //動画を再生
+
+                        //現在の再生位置（秒）を表示
+                        v.addEventListener("loadedmetadata", function(){
+                            v.currentTime = playMovie.movie_start_time;
+                        }, false);
+                        v.addEventListener("canplay", function() {
+                            v.play();
+                        });
+
+                        $("#pitchVideo").attr("src", playMovie.movie_file_path);
+                        v.load();
+
+                    } else {
+                        alert("この選手の動画はありませんでした。");
+                    }
+
+                },
+                error: function () {
+                    console.error("error pitchsearch api");
+                }
+
+            });
+        }
+
+        function loadMasterData() {
+            // 選手マスタ
+            callApi({
+                url: "https://pk-api.pitchbase.jp/apiv0/pitchbase/data/master/player_master?filter=team.code+eq+2005002",
+                success: function(response) {
+                    $.each(response.results, function(index) {
+                        var player = response.results[index];
+                        var playerElement = $("#players").append("<tr/>").append("<td>" + player.player_code + "</td><td>" + player.player_name + "</td><td><img src='" + player.face_file + "'/></td>");
+                        playerElement.data("player_code", player.player_code);
+                        playerElement.data("team_code", player.team.code);
+                        playerElement.click(function() {
+                            app.player_code = $(this).data("player_code");
+                            app.team_code = $(this).data("team_code");
+                        });
+
+                    });
+                },
+                error: function () {
+                    console.error("error playermaster api");
+                }
+
+            });
+
+        }
+
+        function init() {
+            login({
+                success: function (response) {
+                    console.log("success login");
+                    app.access_token = response.access_token;
+                    //callPitchSearch();
+                    loadMasterData();
+                },
+                error: function () {
+                    console.error("success login");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+
+            console.log("start pitchbase search sample app.")
+
+            $("#init").click(function() {
+                init();
+            });
+            $("#pitchsearch").click(function() {
+                callPitchSearch();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button id="init" class="pure-button pure-button-primary">マスタ読み込み</button>
+<table class="pure-table">
+    <thead>
+    <tr>
+        <th>player_code</th>
+        <th>選手名</th>
+        <th>顔写真</th>
+    </tr>
+    </thead>
+
+    <tbody id="players">
+
+    </tbody>
+</table>
+<button id="pitchsearch" class="pure-button pure-button-primary">検索</button>
+<div>
+    <video id="pitchVideo" width="400" height="300" controls/>
+</div>
+</body>
+</html>
